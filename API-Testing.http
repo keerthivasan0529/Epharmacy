@@ -1,0 +1,15 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+### Login POST request
+POST http://localhost:8080/customer-api/login
+Content-Type: application/json
+
+{
+  "email": "abhishek@example.com",
+  "password": "hashedPass1"
+}
+
+### Register POST request
+POST https://localhost:8080/customer-api/register

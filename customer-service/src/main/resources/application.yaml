@@ -1,3 +1,24 @@
 spring:
   application:
     name: customer-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/epharmacy
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  server:
+    port: 8080
+
+  cloud:
+   consul:
+    config:
+     enabled: false
