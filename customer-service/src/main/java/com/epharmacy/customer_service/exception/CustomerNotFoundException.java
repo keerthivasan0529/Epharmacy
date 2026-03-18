@@ -1,4 +1,4 @@
-package com.epharmacy.customer_service.utility;
+package com.epharmacy.customer_service.exception;
 
 
 public class CustomerNotFoundException extends RuntimeException{
