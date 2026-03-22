@@ -49,4 +49,7 @@ public class Customer {
     // One customer can have many addresses
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Address> addressList;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<PasswordHistory> passwordHistoryList;
 }
