@@ -1,9 +1,6 @@
 package com.epharmacy.customer_service.service;
 
-import com.epharmacy.customer_service.dto.AddressDto;
-import com.epharmacy.customer_service.dto.CustomerDto;
-import com.epharmacy.customer_service.dto.LoginDto;
-import com.epharmacy.customer_service.dto.UpdateProfileDto;
+import com.epharmacy.customer_service.dto.*;
 
 import java.util.List;
 
@@ -30,14 +27,14 @@ public interface CustomerService {
     CustomerDto updateProfile(UpdateProfileDto updateProfileDto);
 
     // US07 - Upgrade to Prime
-//    String upgradeToPrime(Integer customerId, Integer planId);
+    String upgradeToPrime(Integer customerId, Integer planId);
 
     // US08 - Change password
-//    String changePassword(ChangePasswordDto changePasswordDto);
+    String changePassword(ChangePasswordDto changePasswordDto);
 
     // View all addresses of customer
-//    List<AddressDto> viewAddresses(Integer customerId);
+    List<AddressDto> viewAddresses(Integer customerId);
 
     // Add new address for customer
-//    String addAddress(Integer customerId, AddressDto addressDto);
+    String addAddress(Integer customerId, AddressDto addressDto);
 }

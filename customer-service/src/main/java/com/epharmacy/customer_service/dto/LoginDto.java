@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LoginDto {
 
-    @NotBlank
+    @NotBlank(message = "Email is required")
     @Pattern(
             regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.(com|in)$",
             message = "Email should be valid with domain .com or .in"

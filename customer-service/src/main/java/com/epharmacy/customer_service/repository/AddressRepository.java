@@ -4,7 +4,6 @@ import com.epharmacy.customer_service.entity.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 //For these TWO endpoints in Customer Microservice:
 //
