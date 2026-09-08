@@ -1,0 +1,17 @@
+package com.epharmacy.medicine_service.repository;
+
+import com.epharmacy.medicine_service.entity.Medicine;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface MedicineRepository extends JpaRepository<Medicine, Integer> {
+
+    Page<Medicine> findByCategory(String category, Pageable page);
+
+    List<Medicine> findByMedicineNameContainingIgnoreCase(String medicineName);
+}

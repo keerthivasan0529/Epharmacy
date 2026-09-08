@@ -111,3 +111,90 @@ CREATE TABLE password_history (
   changed_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
+
+
+
+---------------------------------------------------------------------Sample Data---------------------------------------------
+-- expires in 8 months → should show stored discount
+--INSERT INTO medicine VALUES (null, 'TestMed A', 'ABC', 'Ayurvedic', '2025-01-01', '2027-05-01', 100.00, 5, 50);
+
+-- expires in 5 months → should show 20%
+--INSERT INTO medicine VALUES (null, 'TestMed B', 'XYZ', 'Diabetes', '2025-01-01', '2027-02-01', 200.00, 8, 50);
+
+-- Insert Sample Customers
+
+-- INSERT INTO customer (name, email, password, dob, contact_number, gender, plan, plan_expiry_date, health_coins)
+-- VALUES
+--     ('Abhishek', 'abhishek@example.com', 'hashedPass1', '1990-05-12', '9876543210', 'Male', 'Regular', NULL, 50),
+--     ('Keerthi', 'keerthi@example.com', 'hashedPass2', '1992-03-22', '9123456789', 'Female', 'Prime', '2026-03-22', 120),
+--     ('Arun', 'arun@example.com', 'hashedPass3', '1995-07-15', '9988776655', 'Male', 'Regular', NULL, 0),
+--     ('Deepti', 'deepti@example.com', 'hashedPass4', '1993-11-30', '9876501234', 'Female', 'Prime', '2026-11-30', 200),
+--     ('Mahak', 'mahak@example.com', 'hashedPass5', '1988-01-10', '9765432109', 'Female', 'Regular', NULL, 10);
+
+-- Insert Sample Addresses
+
+-- INSERT INTO address (customer_id, address_name, address_line1, address_line2, area, city, state, pincode)
+-- VALUES
+--     (1, 'Home', '12 MG Road', 'Near Mall', 'Indiranagar', 'Bangalore', 'Karnataka', '560038'),
+--     (2, 'Work', 'Tech Park', 'Phase 2', 'Whitefield', 'Bangalore', 'Karnataka', '560066'),
+--     (3, 'Home', '23 Gandhi Street', 'Near Temple', 'Koramangala', 'Bangalore', 'Karnataka', '560034'),
+--     (4, 'Home', '45 Residency Rd', 'Opp. Metro', 'MG Road', 'Bangalore', 'Karnataka', '560025'),
+--     (5, 'Work', 'IT Hub', 'Tower 3', 'Electronic City', 'Bangalore', 'Karnataka', '560100');
+
+-- Insert Sample Medicines
+
+-- INSERT INTO medicine (medicine_name, manufacturer, category, manufacturing_date, expiry_date, price, discount_percent, stock_quantity)
+-- VALUES
+--     ('Paracetamol', 'Cipla', 'Covid Essentials', '2025-01-01', '2026-01-01', 50.00, 10, 200),
+--     ('Metformin', 'Sun Pharma', 'Diabetes', '2024-12-01', '2026-06-01', 120.00, 15, 150),
+--     ('Ashwagandha', 'Himalaya', 'Ayurvedic', '2025-02-15', '2026-12-15', 300.00, 20, 100),
+--     ('Homeopathy Drops', 'Dr. Batra', 'Homeopathy', '2025-03-01', '2026-09-01', 80.00, 5, 250),
+--     ('Vitamin C Tablets', 'Zydus', 'Covid Essentials', '2025-01-20', '2026-07-20', 150.00, 10, 180);
+
+-- Insert Sample Cart
+
+-- INSERT INTO cart (customer_id, medicine_id, quantity)
+-- VALUES
+--     (1, 1, 2),
+--     (2, 2, 3),
+--     (3, 3, 1),
+--     (4, 4, 2),
+--     (5, 5, 1);
+
+-- Insert Sample Orders
+
+-- INSERT INTO orders (customer_id, order_date, order_status, delivery_status, delivery_address_id, total_value, discount_applied, final_amount)
+-- VALUES
+--     (1, NOW(), 'PROCESSING', 'AWAITING_CONFIRMATION', 1, 200.00, 20.00, 180.00),
+--     (2, NOW(), 'CONFIRMED', 'IN_TRANSIT', 2, 360.00, 36.00, 324.00),
+--     (3, NOW(), 'OUT_FOR_DELIVERY', 'OUT_FOR_DELIVERY', 3, 300.00, 60.00, 240.00),
+--     (4, NOW(), 'DELIVERED', 'DELIVERED', 4, 160.00, 16.00, 144.00),
+--     (5, NOW(), 'CANCELLED', 'CANCELLED', 5, 100.00, 0.00, 0.00);
+
+-- Insert Sample Order_Items
+
+-- INSERT INTO order_items (order_id, medicine_id, quantity, price)
+-- VALUES
+--     (1, 1, 2, 100.00),
+--     (2, 2, 3, 360.00),
+--     (3, 3, 1, 300.00),
+--     (4, 4, 2, 160.00),
+--     (5, 5, 1, 100.00);
+
+-- Insert Sample Payments
+
+-- INSERT INTO payment (order_id, customer_id, card_id, amount, payment_status)
+-- VALUES
+--     (1, 1, 'CARD001', 180.00, 'SUCCESS'),
+--     (2, 2, 'CARD002', 324.00, 'SUCCESS'),
+--     (3, 3, 'CARD003', 240.00, 'SUCCESS'),
+--     (4, 4, 'CARD004', 144.00, 'SUCCESS'),
+--     (5, 5, 'CARD005', 0.00, 'FAILED');
+
+-- Insert Sample Cards
+
+-- INSERT INTO cards (card_id, customer_id, name_on_card, card_type, cvv, expiry_date)
+-- VALUES
+--     ('CARD001', 1, 'Abhishek', 'DEBIT', '123', '2027-05-01'),
+--     ('CARD002', 2, 'Keerthi', 'CREDIT', '456', '2028-03-01'),
+--     ('CARD003', 3, 'Arun', 'DEBIT', '789', '2026-12-01')
